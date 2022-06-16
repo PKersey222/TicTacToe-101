@@ -14,9 +14,7 @@ let currentMarker = 'X'
 // this "handleClick" function is called when a box is clicked. Here, "element" will hold the same value as "this" does in the HTML. 
 // "this" is a special word in JS but "element" could have been "thing" or "el" or whatever we wanted it to be as long as we use it again in the "console.log" statement
 const handleClick = (element) => {
-  const row = parseInt(element.id.charAt(0))
-  const column = parseInt(element.id.charAt(2)) 
-  board[row][column] = currentMarker
+  
 
   // this uses the "log" method on the "console" to log out the element's id so we can see it with our human eyes
   console.log(`The element you clicked on has an id:  ${element.id}`)
@@ -34,6 +32,9 @@ const addMarker = (id) => {
   console.log(`*** The current marker is:  ${currentMarker}. ***`)
   console.log(`Therefore, a  "${currentMarker}"  should be placed in the square with the id:  ${id}`)
   document.getElementById(id).innerHTML = currentMarker;
+  const row = parseInt(id.charAt(0))
+  const column = parseInt(id.charAt(2)) 
+  board[row][column] = currentMarker
   checkForWin()
 }
 
